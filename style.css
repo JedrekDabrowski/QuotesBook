@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ccc;
+    overflow: hidden;
+
+}
+
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 800px;
+    background-image: url("/img/paper.jpg");
+    perspective: 50em;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 0 3px #fff, 0 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 0 7px black, 0 0 1px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.51);
+    transform: translate(-50%, -50%) rotate(90deg);
+
+}
+
+.box-in {
+    position: relative;
+    background-image: url("/img/paper.jpg");
+    width: 400px;
+    height: 50%;
+    border-radius: 5%;
+    transform-origin: bottom;
+    transform: rotateX(0deg);
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+
+}
+
+.box-in.active {
+    animation: spin 4s linear backwards;
+}
+
+.line {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.8);
+}
+
+p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    transform: rotate(-90deg);
+    font-size: 20px;
+    line-height: 25px;
+    font-family: 'Merriweather', serif;
+    transition: text 5s;
+}
+
+p.text {
+    bottom: 10%;
+    left: 10%;
+}
+
+p.author {
+    left: 80%;
+    top: -40%;
+}
+
+
+.next-page {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid black;
+    background-color: #e2c7a9;
+    font-family: 'Merriweather', serif;
+    cursor: pointer;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    25% {
+        opacity: 1;
+        box-shadow: 3px -2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 50% {
+        transform: rotateX(-180deg);
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0;
+    } */
+
+    100% {
+        transform: rotateX(-180deg);
+        opacity: 0;
+    }
+}
